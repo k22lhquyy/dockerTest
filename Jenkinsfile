@@ -29,7 +29,7 @@ pipeline {
         stage("deploy") {
              steps {
                  withBuildConfiguration {
-                     sshagent(credentials: [SSH_ID_REF]) {
+                     sshagent(credentials: [ssh-quyle]) {
                          sh '''
                             ssh -o StrictHostKeyChecking=no root@ec2-18-143-167-76.ap-southeast-1.compute.amazonaws.com
                             docker run -d --rm --name y-todo-app -p 8060:8000 vitnguyen/mgm-training-todo-app:0.0.3
